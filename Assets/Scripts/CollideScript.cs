@@ -5,8 +5,8 @@ using UnityEngine;
 public class CollideScript : MonoBehaviour
 {
     [SerializeField] private Vector3 sizeIncrease;
-    
-    
+
+    public BoxCollider boxCol;
     public SpriteRenderer sr;
     public GameObject stage2;
 
@@ -16,22 +16,30 @@ public class CollideScript : MonoBehaviour
     {
         fuel = 0;
     }
-    
-    private void OnTriggerEnter(Collider other)
+   
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Consumable")
+        if (other.collider.CompareTag("Consumable"))
         {
             fuel++;
-            //Increases the scale/size of flame with a given vector 3 value
+            //Increases the scale/size of flame with a given vector3 value
             this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
-            //Destroy(other);
+            Debug.Log(fuel);
+            //other.gameObject.SetActive(false);
         }
-
+        //Can consume bigger items as Player State rises
+        if (other.collider.CompareTag("MediumConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl2)
+        {
+            fuel++;
+            other.gameObject.SetActive(false);
+        }
+            
         if (fuel == 5)
         {
-            //stage2.SetActive(true);
+            PlayerStates.state = PlayerStates.playerLvL.lvl2;
+            Debug.Log(PlayerStates.state);
         }
-
+        
     }
     
 }

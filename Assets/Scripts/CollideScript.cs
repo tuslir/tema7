@@ -27,6 +27,14 @@ public class CollideScript : MonoBehaviour
             //Destroy(other);
         }
 
+        if (other.tag == "MidConsumable" && PlayerStates.state == PlayerStates.playerLvL.lvl2)
+        {
+            fuel++;
+            //Increases the scale/size of flame with a given vector 3 value
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
+            //Destroy(other);
+        }
+
         if (fuel == 5)
         {
             //stage2.SetActive(true);

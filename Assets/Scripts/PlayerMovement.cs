@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float movementSpeed;
+    public static float movementSpeed = 7;
 
     CharacterController controller;
     Vector3 movementDir;
     Vector3 velocity;
+    public GameObject pauseMenu;
+    private bool isPaused;
 
     void Start()
     {
@@ -31,6 +33,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 motion = movementDir * movementSpeed * Time.deltaTime;
         controller.Move(motion);
 
+
+        //PauseMenu med toggle funksjon
+        if(Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        {
+            isPaused = true;
+            pauseMenu.SetActive(true);
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        {
+            pauseMenu.SetActive(false);
+            isPaused = false;
+        }
 
     }
 }

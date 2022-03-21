@@ -12,18 +12,22 @@ public class PlayerStates : MonoBehaviour
     void Start()
     {
         state = playerLvL.lvl1;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Changes player to next Lvl
         if(CollideScript.fuel == 5)
         {
             state = playerLvL.lvl2;
         }
 
-      
+        if (CollideScript.fuel <= 4)
+        {
+            state = playerLvL.lvl1;
+        }
+
     }
 
     

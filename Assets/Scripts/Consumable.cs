@@ -9,12 +9,14 @@ public class Consumable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        midCon = GameObject.FindGameObjectsWithTag("MediumConsumable");
+        // Finds all objects with the same tag and puts them to an array
+        midCon = GameObject.FindGameObjectsWithTag("MidConsumable");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //If the player is a certain lvl, it goes through the array and changes every object's collider
         if(PlayerStates.state == PlayerStates.playerLvL.lvl2)
         {
             foreach (var i in midCon)

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CollideScript : MonoBehaviour
 {
+    [Header("Variables")]
     [SerializeField] private Vector3 sizeIncrease;
+    [SerializeField] private Vector3 sizeDecrease;
     
-    
-    public SpriteRenderer sr;
-    public GameObject stage2;
 
     public static int fuel;
 
@@ -35,11 +34,16 @@ public class CollideScript : MonoBehaviour
             //Destroy(other);
         }
 
-        if (fuel == 5)
+        if(other.tag == "Hazard")
         {
-            //stage2.SetActive(true);
+            if(fuel >=1)
+            {
+            fuel--;
+            //Shrinks Player size
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale - sizeDecrease;
+            Debug.Log(fuel);
+            }
         }
-
     }
     
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Consumable
+  - MidConsumable
+  - Hazard
   layers:
   - Default
   - TransparentFX

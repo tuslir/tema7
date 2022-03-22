@@ -6,19 +6,32 @@ public class RespawnSprite : MonoBehaviour
 {
 
     BoxCollider boxCollide; 
-    public GameObject player;
+    GameObject player;
     Animator anim;
-    public bool isBurnt;
 
-    public float coolDown;      //the amount of time the timer should count down.
-    public float growTimer;     //timer for how long it takes the sprite to grow back.
+    SpriteRenderer spriteRenderer;
+    public Sprite originalSprite;
+    public Sprite burntSprite;
 
-    public float range;         //range from player before item grows back.
+    public bool isBurnt;        //makes sure anim triggers don't set if item is already "burnt".
+                                //call on this in CollideScript so player won't grow when moving over things already burnt?
+
+
+    [Header ("Public for debug")]
+    public float coolDown;      //the amount of time until item grows back.
+    public float growTimer;     //timer counting down (from coolDown float) until item grows back.
+    public float range;         //distance from player before item grows back.
+
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollide = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
+
+        spriteRenderer.sprite = originalSprite;
     }
 
     void Update()
@@ -28,7 +41,7 @@ public class RespawnSprite : MonoBehaviour
 
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
-        if (dist > range || growTimer==0 && isBurnt)
+        if (dist > range || growTimer==0 && isBurnt)        //if distance between item and player is larger than allowed range, OR the timer runs out
         {
             ResetSprite();
             print("reset!");
@@ -48,8 +61,11 @@ public class RespawnSprite : MonoBehaviour
     {
         growTimer = coolDown;
         isBurnt = true;
-        anim.ResetTrigger("growBack");
-        anim.SetTrigger("burnt");
+        spriteRenderer.sprite = burntSprite;
+
+
+        //anim.ResetTrigger("growBack");
+        //anim.SetTrigger("burnt");
 
 
 
@@ -59,8 +75,11 @@ public class RespawnSprite : MonoBehaviour
     void ResetSprite()
     {
         isBurnt = false;
-        anim.ResetTrigger("burnt");
-        anim.SetTrigger("growBack");
+        spriteRenderer.sprite = originalSprite;
+
+
+        //anim.ResetTrigger("burnt");
+        //anim.SetTrigger("growBack");
 
 
         //resets sprite

@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 169906743}
   m_Layer: 0
   m_Name: treestump
-  m_TagString: Untagged
+  m_TagString: Consumable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,9 +162,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 3ab9e977d541ab642ae7a58d6b6421bf, type: 3}
   burntSprite: {fileID: 21300000, guid: 3ad775fbfb4083248a539a48d7d2aeaa, type: 3}
   isBurnt: 0
-  coolDown: 15
-  growTimer: 0
-  range: 5
+  range: 20
 --- !u!212 &169906741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -255,7 +253,6 @@ GameObject:
   - component: {fileID: 378854013}
   - component: {fileID: 378854012}
   - component: {fileID: 378854011}
-  - component: {fileID: 378854010}
   - component: {fileID: 378854009}
   m_Layer: 0
   m_Name: plant1 (3)
@@ -279,28 +276,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: e5645082d6f65d24bb44c2105acc1df6, type: 3}
   burntSprite: {fileID: 21300000, guid: 3ad775fbfb4083248a539a48d7d2aeaa, type: 3}
   isBurnt: 0
-  coolDown: 15
-  growTimer: 0
   range: 10
---- !u!95 &378854010
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378854008}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60f09ec3ccc0bce44828ca7aeaa9ff21, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &378854011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -468,7 +444,6 @@ GameObject:
   - component: {fileID: 565359856}
   - component: {fileID: 565359860}
   - component: {fileID: 565359859}
-  - component: {fileID: 565359858}
   - component: {fileID: 565359857}
   m_Layer: 0
   m_Name: plant1 (1)
@@ -506,28 +481,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: e5645082d6f65d24bb44c2105acc1df6, type: 3}
   burntSprite: {fileID: 21300000, guid: 3ad775fbfb4083248a539a48d7d2aeaa, type: 3}
   isBurnt: 0
-  coolDown: 15
-  growTimer: 0
   range: 10
---- !u!95 &565359858
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565359855}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60f09ec3ccc0bce44828ca7aeaa9ff21, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &565359859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1084,7 +1038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2110,7 +2064,6 @@ GameObject:
   - component: {fileID: 1928234913}
   - component: {fileID: 1928234917}
   - component: {fileID: 1928234916}
-  - component: {fileID: 1928234915}
   - component: {fileID: 1928234914}
   m_Layer: 0
   m_Name: plant1 (2)
@@ -2148,28 +2101,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: e5645082d6f65d24bb44c2105acc1df6, type: 3}
   burntSprite: {fileID: 21300000, guid: 3ad775fbfb4083248a539a48d7d2aeaa, type: 3}
   isBurnt: 0
-  coolDown: 15
-  growTimer: 0
   range: 10
---- !u!95 &1928234915
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928234912}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60f09ec3ccc0bce44828ca7aeaa9ff21, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &1928234916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2499,9 +2431,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5767010195305460707, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
+      propertyPath: sizeIncrease.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5767010195305460719, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767010195594192841, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1a7147d925b5f04a9174b9864801352, type: 3}

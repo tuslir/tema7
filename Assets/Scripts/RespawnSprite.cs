@@ -18,8 +18,6 @@ public class RespawnSprite : MonoBehaviour
 
 
     [Header ("Public for debug")]
-    public float coolDown;      //the amount of time until item grows back.
-    public float growTimer;     //timer counting down (from coolDown float) until item grows back.
     public float range;         //distance from player before item grows back.
 
 
@@ -36,12 +34,9 @@ public class RespawnSprite : MonoBehaviour
 
     void Update()
     {
-
-        growTimer -= Time.deltaTime;
-
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
-        if (dist > range || growTimer==0 && isBurnt)        //if distance between item and player is larger than allowed range, OR the timer runs out
+        if (dist > range && isBurnt)        //if distance between item and player is larger than allowed range, OR the timer runs out
         {
             ResetSprite();
             print("reset!");
@@ -59,7 +54,6 @@ public class RespawnSprite : MonoBehaviour
 
     void BurnDown()
     {
-        growTimer = coolDown;
         isBurnt = true;
         spriteRenderer.sprite = burntSprite;
 

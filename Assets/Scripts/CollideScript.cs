@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CollideScript : MonoBehaviour
 {
+    [Header("Variables")]
     [SerializeField] private Vector3 sizeIncrease;
+    [SerializeField] private Vector3 sizeDecrease;
     
-    
-    public SpriteRenderer sr;
-    public GameObject stage2;
 
     public static int fuel;
 
@@ -27,11 +26,24 @@ public class CollideScript : MonoBehaviour
             //Destroy(other);
         }
 
-        if (fuel == 5)
+        if (other.tag == "MidConsumable" && PlayerStates.state == PlayerStates.playerLvL.lvl2)
         {
-            //stage2.SetActive(true);
+            fuel++;
+            //Increases the scale/size of flame with a given vector 3 value
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
+            //Destroy(other);
         }
 
+        if(other.tag == "Hazard")
+        {
+            if(fuel >=1)
+            {
+            fuel--;
+            //Shrinks Player size
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale - sizeDecrease;
+            Debug.Log(fuel);
+            }
+        }
     }
     
 }

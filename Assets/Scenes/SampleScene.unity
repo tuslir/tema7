@@ -194,18 +194,6 @@ MonoBehaviour:
   controller: {fileID: 0}
   pauseMenu: {fileID: 1163072888}
   motion: {x: 0, y: 0, z: 0}
-  dashRight: {x: 5, y: 0, z: 0}
-  dashLeft: {x: -5, y: 0, z: 0}
-  dashForward: {x: 0, y: 0, z: 5}
-  dashBack: {x: 0, y: 0, z: -5}
-  dashThrust: 15
-  dashCDTimer: 1
-  W: 0
-  A: 0
-  S: 0
-  D: 0
-  canDashRight: 0
-  isDashing: 0
 --- !u!114 &10747594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,9 +245,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0af1bbb30ecd1488830d20af39df0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosRight: {x: 50, y: 0, z: 0}
+  targetPosRight: {x: 200, y: 0, z: 0}
+  targetPosLeft: {x: -200, y: 0, z: 0}
+  targetPosForward: {x: 0, y: 0, z: 200}
+  targetPosBack: {x: 0, y: 0, z: -200}
+  dashCD: 3
   dashSpeed: 500
-  dashTime: 2
+  dashTime: 0.25
   isDashing: 0
 --- !u!1 &403504796
 GameObject:

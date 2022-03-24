@@ -7,9 +7,9 @@ public class CollideScript : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private Vector3 sizeIncrease;
     [SerializeField] private Vector3 sizeDecrease;
-    
 
     public static int fuel;
+    RespawnSprite respawn;
 
     void Start()
     {
@@ -18,12 +18,20 @@ public class CollideScript : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+
+        respawn = other.gameObject.GetComponent<RespawnSprite>();
+
+
         if (other.tag == "Consumable")
         {
+
             fuel++;
             //Increases the scale/size of flame with a given vector 3 value
             this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
             //Destroy(other);
+            print(fuel);
+            respawn.BurnDown();
+
         }
 
         if (other.tag == "MidConsumable" && PlayerStates.state == PlayerStates.playerLvL.lvl2)
@@ -32,9 +40,12 @@ public class CollideScript : MonoBehaviour
             //Increases the scale/size of flame with a given vector 3 value
             this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
             //Destroy(other);
+            print(fuel);
+            respawn.BurnDown();
+
         }
 
-        if(other.tag == "Hazard")
+        if (other.tag == "Hazard")
         {
             if(fuel >=1)
             {

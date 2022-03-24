@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
         //MOVEMENT WITH CHARACTER CONTROLLER
         controller.Move(velocity * Time.deltaTime);
         float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        float y = Input.GetAxisRaw("Vertical");
 
-        movementDir = transform.right * x + transform.forward * z;
+        movementDir = transform.right * x + transform.up * y;
         motion = movementDir * movementSpeed * Time.deltaTime;
         controller.Move(motion);
 
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         //definerer hvor animator skal hente floats
         anim.SetFloat("horizontal", Mathf.Abs(motion.x));
-        anim.SetFloat("vertical", Mathf.Abs(motion.z));
+        anim.SetFloat("vertical", Mathf.Abs(motion.y));
 
 
 

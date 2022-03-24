@@ -8,6 +8,7 @@ TagManager:
   - MidConsumable
   - Hazard
   - Ground
+  - Burnt
   layers:
   - Default
   - TransparentFX

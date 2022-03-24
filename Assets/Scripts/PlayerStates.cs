@@ -21,6 +21,7 @@ public class PlayerStates : MonoBehaviour
         if(CollideScript.fuel == 5)
         {
             state = playerLvL.lvl2;
+            print(state);
         }
 
         if (CollideScript.fuel <= 4)

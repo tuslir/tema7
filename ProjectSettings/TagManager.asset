@@ -7,11 +7,12 @@ TagManager:
   - Consumable
   - MidConsumable
   - Hazard
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

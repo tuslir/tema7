@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.position = new Vector3(player.position.x, transform.position.y, player.position.z - 20);
         //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
     }
 }

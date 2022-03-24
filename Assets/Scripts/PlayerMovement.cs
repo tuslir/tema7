@@ -7,14 +7,16 @@ public class PlayerMovement : MonoBehaviour
 
     public static float movementSpeed = 7;
 
-    CharacterController controller;
+    public CharacterController controller;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    public GameObject pauseMenu;
 
+    public Vector3 motion;
     Vector3 movementDir;
     Vector3 velocity;
-    public GameObject pauseMenu;
     private bool isPaused;
+
 
     void Start()
     {
@@ -31,17 +33,17 @@ public class PlayerMovement : MonoBehaviour
         //MOVEMENT WITH CHARACTER CONTROLLER
         controller.Move(velocity * Time.deltaTime);
         float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        float y = Input.GetAxisRaw("Vertical");
 
-        movementDir = transform.right * x + transform.forward * z;
-        Vector3 motion = movementDir * movementSpeed * Time.deltaTime;
+        movementDir = transform.right * x + transform.up * y;
+        motion = movementDir * movementSpeed * Time.deltaTime;
         controller.Move(motion);
 
 
 
         //definerer hvor animator skal hente floats
         anim.SetFloat("horizontal", Mathf.Abs(motion.x));
-        anim.SetFloat("vertical", Mathf.Abs(motion.z));
+        anim.SetFloat("vertical", Mathf.Abs(motion.y));
 
 
 
@@ -68,11 +70,12 @@ public class PlayerMovement : MonoBehaviour
             isPaused = true;
             pauseMenu.SetActive(true);
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             pauseMenu.SetActive(false);
             isPaused = false;
         }
+
 
     }
 }

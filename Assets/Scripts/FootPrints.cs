@@ -23,16 +23,17 @@ public class FootPrints : MonoBehaviour
         }
         totalTime += Time.deltaTime;
         timer += Time.deltaTime;
-        if (totalTime > 0.5f)
+        if (totalTime > 0.1f)
         {
             footPrints.transform.position = this.transform.position;
             footPrints.SetActive(true);
             totalTime = 0;
         }
 
-        if (timer > 2f)
+        if (timer > 0.1f)
         {
-            pooling.objectToPool.SetActive(false);
+            footPrints = GameObject.Find("ScorchMarks(Clone)");
+            footPrints.SetActive(false);
             timer = 0;
         }
 

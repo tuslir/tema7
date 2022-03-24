@@ -24,7 +24,7 @@ public class ObjectPooling : MonoBehaviour
          for (int i = 0; i < amountToPool; i++)
          {
              tmp = Instantiate(objectToPool);
-             tmp.SetActive(false);
+             tmp.SetActive(true);
              pooledObjects.Add(tmp);
          }
      }

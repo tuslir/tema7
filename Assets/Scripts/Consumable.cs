@@ -24,5 +24,12 @@ public class Consumable : MonoBehaviour
                 i.GetComponent<BoxCollider>().isTrigger = true;
             }
         }
+        else if(PlayerStates.state != PlayerStates.playerLvL.lvl2)
+            {
+                foreach (var i in midCon)
+                {
+                    i.GetComponent<BoxCollider>().isTrigger = false;
+                }
+            }
     }
 }

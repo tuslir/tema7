@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,15 +9,18 @@ public class PlayerMovement : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     public GameObject pauseMenu;
-
+    [SerializeField] private Camera mapCam;
     public Vector3 motion;
     Vector3 movementDir;
     Vector3 velocity;
     private bool isPaused;
+    private bool mapOpen;
 
 
     void Start()
     {
+        mapOpen = false;
+        mapCam.enabled = false;
         controller = GetComponent<CharacterController>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -63,6 +64,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.M) && !mapOpen)
+        {
+            mapCam.enabled = true;
+            mapOpen = true;
+        }
+        
+        if(Input.GetKeyDown(KeyCode.M) && mapOpen)
+        {
+            mapCam.enabled = false;
+            mapOpen = false;
+        }
 
         /*//PauseMenu med toggle funksjon
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)

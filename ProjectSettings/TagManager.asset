@@ -6,14 +6,12 @@ TagManager:
   tags:
   - Consumable
   - MidConsumable
-  - Hazard
-  - Ground
   - Burnt
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Map
   - Water
   - UI
   - 

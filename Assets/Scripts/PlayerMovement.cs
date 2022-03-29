@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //PauseMenu med toggle funksjon
+        /*//PauseMenu med toggle funksjon
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             isPaused = true;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             pauseMenu.SetActive(false);
             isPaused = false;
         }
-
+        */
 
     }
 }

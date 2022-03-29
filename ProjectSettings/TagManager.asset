@@ -5,11 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Consumable
+  - MidConsumable
+  - Hazard
+  - Ground
+  - Burnt
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

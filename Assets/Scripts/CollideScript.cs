@@ -4,42 +4,57 @@ using UnityEngine;
 
 public class CollideScript : MonoBehaviour
 {
+    [Header("Variables")]
     [SerializeField] private Vector3 sizeIncrease;
-
-    public BoxCollider boxCol;
-    public SpriteRenderer sr;
-    public GameObject stage2;
+    [SerializeField] private Vector3 sizeDecrease;
 
     public static int fuel;
+    RespawnSprite respawn;
 
     void Start()
     {
         fuel = 0;
     }
-   
-    private void OnCollisionEnter(Collision other)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.CompareTag("Consumable"))
+
+        respawn = other.gameObject.GetComponent<RespawnSprite>();
+
+
+        if (other.tag == "Consumable")
         {
+
             fuel++;
-            //Increases the scale/size of flame with a given vector3 value
+            //Increases the scale/size of flame with a given vector 3 value
             this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
-            Debug.Log(fuel);
-            //other.gameObject.SetActive(false);
+            //Destroy(other);
+            print(fuel);
+            respawn.BurnDown();
+
         }
-        //Can consume bigger items as Player State rises
-        if (other.collider.CompareTag("MediumConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl2)
+
+        if (other.tag == "MidConsumable" && PlayerStates.state == PlayerStates.playerLvL.lvl2)
         {
             fuel++;
-            other.gameObject.SetActive(false);
+            //Increases the scale/size of flame with a given vector 3 value
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
+            //Destroy(other);
+            print(fuel);
+            respawn.BurnDown();
+
         }
-            
-        if (fuel == 5)
+
+        if (other.tag == "Hazard")
         {
-            PlayerStates.state = PlayerStates.playerLvL.lvl2;
-            Debug.Log(PlayerStates.state);
+            if(fuel >=1)
+            {
+            fuel--;
+            //Shrinks Player size
+            this.gameObject.transform.localScale = this.gameObject.transform.localScale - sizeDecrease;
+            Debug.Log(fuel);
+            }
         }
-        
     }
     
 }

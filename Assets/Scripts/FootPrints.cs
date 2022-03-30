@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class FootPrints : MonoBehaviour
 {
-    [SerializeField] private float timer = 0;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private float totalTime = 0;
-    public ObjectPooling pooling;
-    public GameObject footPrints;
+    [SerializeField] private ObjectPooling pooling;
+    [SerializeField] private GameObject footPrints;
+    private float timer = 0;
+    private float totalTime = 0;
 
     // Start is called before the first frame update
     void Start()

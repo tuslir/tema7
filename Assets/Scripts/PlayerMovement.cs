@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public static float movementSpeed = 7;
-
+    [Header("Components")]
     public CharacterController controller;
     SpriteRenderer spriteRenderer;
     Animator anim;
-    public GameObject pauseMenu;
-    [SerializeField] private Camera mapCam;
-    public Vector3 motion;
+    
+    [Header("Stored Variables")]
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private float movementSpeed;
     Vector3 movementDir;
+    Vector3 motion;
     Vector3 velocity;
+
+    [Header("Bools")]
     private bool isPaused;
-    private bool mapOpen;
 
 
     void Start()
     {
-        mapOpen = false;
-        mapCam.enabled = false;
         controller = GetComponent<CharacterController>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -64,17 +63,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && !mapOpen)
-        {
-            mapCam.enabled = true;
-            mapOpen = true;
-        }
-        
-        if(Input.GetKeyDown(KeyCode.M) && mapOpen)
-        {
-            mapCam.enabled = false;
-            mapOpen = false;
-        }
 
         /*//PauseMenu med toggle funksjon
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)

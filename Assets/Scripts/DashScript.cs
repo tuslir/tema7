@@ -10,7 +10,6 @@ public class DashScript : MonoBehaviour
     [SerializeField] private Vector3 targetPosBack;
     [SerializeField] private float dashCD;
     [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashTime;
 
     public bool isDashing;
 
@@ -49,9 +48,9 @@ public class DashScript : MonoBehaviour
     {
         float startTime = Time.time;
 
-        while(Time.time < startTime + dashTime)
+        while(Time.time < startTime + dashSpeed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosRight, dashTime * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosRight, dashSpeed * Time.deltaTime);
 
             Invoke("DashCD", dashCD);
             yield return null;
@@ -62,9 +61,9 @@ public class DashScript : MonoBehaviour
     {
         float startTime = Time.time;
 
-        while (Time.time < startTime + dashTime)
+        while (Time.time < startTime + dashSpeed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosLeft, dashTime * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosLeft, dashSpeed * Time.deltaTime);
 
             Invoke("DashCD", dashCD);
             yield return null;
@@ -75,9 +74,9 @@ public class DashScript : MonoBehaviour
     {
         float startTime = Time.time;
 
-        while (Time.time < startTime + dashTime)
+        while (Time.time < startTime + dashSpeed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosForward, dashTime * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosForward, dashSpeed * Time.deltaTime);
 
             Invoke("DashCD", dashCD);
             yield return null;
@@ -88,9 +87,9 @@ public class DashScript : MonoBehaviour
     {
         float startTime = Time.time;
 
-        while (Time.time < startTime + dashTime)
+        while (Time.time < startTime + dashSpeed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosBack, dashTime * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosBack, dashSpeed * Time.deltaTime);
 
             Invoke("DashCD", dashCD);
             yield return null;

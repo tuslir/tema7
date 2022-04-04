@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public static float movementSpeed = 7;
-
+    [Header("Components")]
     public CharacterController controller;
     SpriteRenderer spriteRenderer;
     Animator anim;
-    public GameObject pauseMenu;
-
-    public Vector3 motion;
+    
+    [Header("Stored Variables")]
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private float movementSpeed;
     Vector3 movementDir;
+    Vector3 motion;
     Vector3 velocity;
+
+    [Header("Bools")]
     private bool isPaused;
 
 
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //PauseMenu med toggle funksjon
+        /*//PauseMenu med toggle funksjon
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             isPaused = true;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             pauseMenu.SetActive(false);
             isPaused = false;
         }
-
+        */
 
     }
 }

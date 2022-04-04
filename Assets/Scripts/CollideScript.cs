@@ -5,7 +5,7 @@ public class CollideScript : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private Vector3 sizeIncrease;
     [SerializeField] private Vector3 sizeDecrease;
-    [SerializeField] private Vector3 camZoom;
+    [SerializeField] public Vector3 camZoom;
 
     [SerializeField] private Camera cam;
     public static int fuel;

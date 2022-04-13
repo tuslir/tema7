@@ -3,15 +3,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
-    public CharacterController controller;
-    SpriteRenderer spriteRenderer;
-    Animator anim;
-    
+    [SerializeField] private Animator anim;
+    private CharacterController controller;
+
+   
     [Header("Stored Variables")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private float movementSpeed;
     public static Vector3 movementDir;
-    Vector3 motion;
+    public static Vector3 motion;
     Vector3 velocity;
 
     [Header("Bools")]
@@ -21,14 +21,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        anim = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //Definerer hvor animator skal hente walk parameter
+        anim.SetFloat("horizontal", Mathf.Abs(motion.x));
+        anim.SetFloat("vertical", Mathf.Abs(motion.y));
 
         //MOVEMENT WITH CHARACTER CONTROLLER
         controller.Move(velocity * Time.deltaTime);
@@ -38,30 +39,6 @@ public class PlayerMovement : MonoBehaviour
         movementDir = transform.right * x + transform.up * y;
         motion = movementDir * movementSpeed * Time.deltaTime;
         controller.Move(motion);
-
-
-
-        //definerer hvor animator skal hente floats
-        anim.SetFloat("horizontal", Mathf.Abs(motion.x));
-        anim.SetFloat("vertical", Mathf.Abs(motion.y));
-
-
-
-        //flip character sprite
-        if (x < 0)
-        {
-            if (spriteRenderer.flipX != false)
-            {
-                spriteRenderer.flipX = false;
-            }
-        }
-        else if (x > 0)
-        {
-            if (spriteRenderer.flipX != true)
-            {
-                spriteRenderer.flipX = true;
-            }
-        }
 
 
         /*//PauseMenu med toggle funksjon

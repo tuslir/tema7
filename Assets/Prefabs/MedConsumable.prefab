@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3200536693380056919}
   - component: {fileID: 3200536693380056916}
   - component: {fileID: 3200536693380056917}
-  - component: {fileID: 3200536693380056918}
   - component: {fileID: 3200536693380056921}
+  - component: {fileID: 2644044952165637811}
   m_Layer: 0
   m_Name: MedConsumable
   m_TagString: MidConsumable
@@ -104,19 +104,6 @@ MonoBehaviour:
   originalTag: 
   isBurnt: 0
   range: 20
---- !u!65 &3200536693380056918
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3200536693380056914}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.777379, y: 4.0992436, z: 0.20000005}
-  m_Center: {x: 0.04403019, y: -0.23540777, z: 2.0736722e-16}
 --- !u!114 &3200536693380056921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +117,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   midCon: []
+--- !u!61 &2644044952165637811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3200536693380056914}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12685263, y: -0.23131907}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.313607, y: 3.8807123}
+  m_EdgeRadius: 0
 --- !u!1 &5358486709662900054
 GameObject:
   m_ObjectHideFlags: 0

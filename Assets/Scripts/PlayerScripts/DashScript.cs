@@ -10,7 +10,7 @@ public class DashScript : MonoBehaviour
     [SerializeField] private Vector3 targetPosBack;
     [SerializeField] private float dashCD;
     [SerializeField] private float dashSpeed;
-
+    private Vector3 rollDir;
     public static bool isDashing;
     public bool canDash = false;
 
@@ -52,6 +52,11 @@ public class DashScript : MonoBehaviour
             StartCoroutine(DashBack());
         }
 
+        /*if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rollDir = PlayerMovement.moveDir;
+        }
+        */
     }
 
 

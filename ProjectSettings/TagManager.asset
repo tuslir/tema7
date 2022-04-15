@@ -7,6 +7,7 @@ TagManager:
   - Consumable
   - MidConsumable
   - Burnt
+  - Hazard
   layers:
   - Default
   - TransparentFX

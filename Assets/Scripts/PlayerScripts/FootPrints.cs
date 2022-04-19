@@ -3,8 +3,8 @@ using UnityEngine;
 public class FootPrints : MonoBehaviour
 {
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private ObjectPooling pooling;
     [SerializeField] private GameObject footPrints;
+    [SerializeField] private ObjectPooling pooling;
     private float timer = 0;
     private float totalTime = 0;
 

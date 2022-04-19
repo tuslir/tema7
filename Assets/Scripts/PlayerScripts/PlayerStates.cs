@@ -19,19 +19,19 @@ public class PlayerStates : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(state);
+      
         //Changes player to next Lvl
         if(CollideScript.fuel == 5)
         {
             state = playerLvL.lvl2;
             print(state);
-            text.text = "LVL2";
+            //text.text = "LVL2";
         }
 
         if (CollideScript.fuel <= 4)
         {
             state = playerLvL.lvl1;
-            text.text = "LVL1";
+            //text.text = "LVL1";
         }
 
         if (CollideScript.fuel == 10)

@@ -9,6 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9cb37fb86e2041643af5690eb3b7d070
   - enabled: 1
+<<<<<<< HEAD
+    path: Assets/Scenes/Old/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+=======
     path: Assets/Scenes/SebastianLevel.unity
     guid: 0307a2c7936ad04448f8fbf911534df5
+>>>>>>> SebastianBranch
   m_configObjects: {}

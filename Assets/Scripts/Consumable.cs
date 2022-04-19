@@ -21,14 +21,14 @@ public class Consumable : MonoBehaviour
         {
             foreach (var i in midCon)
             {
-                i.GetComponent<BoxCollider>().isTrigger = true;
+                i.GetComponent<CompositeCollider2D>().isTrigger = true;
             }
         }
         else if(PlayerStates.state != PlayerStates.playerLvL.lvl2)
             {
                 foreach (var i in midCon)
                 {
-                    i.GetComponent<BoxCollider>().isTrigger = false;
+                    i.GetComponent<CompositeCollider2D>().isTrigger = false;
                 }
             }
     }

@@ -9,6 +9,7 @@ public class PlayerStates : MonoBehaviour
     public enum playerLvL { lvl1, lvl2, lvl3, lvl4, lvl5 };
     public static playerLvL state;
     public Text text;
+    public int pointsTo2, pointsTo3;
 
     // Start is called before the first frame update
     void Start()
@@ -21,26 +22,26 @@ public class PlayerStates : MonoBehaviour
     {
         Debug.Log(state);
         //Changes player to next Lvl
-        if(CollideScript.fuel == 5)
+        if(CollideScript.fuel == pointsTo2)
         {
             state = playerLvL.lvl2;
             print(state);
             text.text = "LVL2";
         }
 
-        if (CollideScript.fuel <= 4)
+        if (CollideScript.fuel <= pointsTo2)
         {
             state = playerLvL.lvl1;
             text.text = "LVL1";
         }
 
-        if (CollideScript.fuel == 10)
+        if (CollideScript.fuel == pointsTo3)
         {
             state = playerLvL.lvl3;
             print(state);
         }
 
-        if (CollideScript.fuel <= 9 && CollideScript.fuel >= 5)
+        if (CollideScript.fuel <= pointsTo3-1 && CollideScript.fuel >= pointsTo2)
         {
             state = playerLvL.lvl2;
         }

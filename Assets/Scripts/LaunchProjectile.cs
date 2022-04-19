@@ -46,7 +46,7 @@ public class LaunchProjectile : MonoBehaviour
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
 
             var proj = Instantiate(projectile, startPoint, Quaternion.identity);
-            proj.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+            proj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
             angle += angleStep;
 

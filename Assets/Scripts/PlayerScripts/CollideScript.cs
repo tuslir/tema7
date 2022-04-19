@@ -28,6 +28,7 @@ public class CollideScript : MonoBehaviour
 
             fuel++;
             //Increases the scale/size of flame with a given vector 3 value
+            FindObjectOfType<AudioManager>().Play("Flamey_Burn3");
             this.gameObject.transform.localScale = this.gameObject.transform.localScale + sizeIncrease;
             cam.transform.position -= camZoom;
             //Destroy(other);
@@ -49,6 +50,7 @@ public class CollideScript : MonoBehaviour
         if (other.CompareTag("Hazard")&& fuel >=1)
         {
             fuel--;
+            FindObjectOfType<AudioManager>().Play("Flamey_Slukkes");
             //Shrinks Player size
             this.gameObject.transform.localScale = this.gameObject.transform.localScale - sizeDecrease;
             cam.transform.position += camZoom;

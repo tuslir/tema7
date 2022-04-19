@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private enum State { Normal, Dashing }
+    public enum State { Normal, Dashing }
 
     [Header("Components")]
     [SerializeField] private Animator anim;
@@ -14,24 +14,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float knockBack;
+    [SerializeField] private AudioClip walkClip;
     public static Vector3 moveDir;
     private Vector3 dashDir;
-    private State state;
+    public State states;
 
     [Header("Bools")]
     private bool isPaused;
+    private bool isWalking;
     public static bool isDashing;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        state = State.Normal;
+        states = State.Normal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (state)
+        switch (states)
         {
 
             case State.Normal:
@@ -41,22 +44,32 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 {
                     moveY = +1f;
+                    isWalking = true;
                 }
-
+                
                 if (Input.GetKey(KeyCode.A))
                 {
                     moveX = -1f;
+                    isWalking = true;
                 }
 
                 if (Input.GetKey(KeyCode.S))
                 {
                     moveY = -1f;
+                    isWalking = true;
                 }
-
+                
                 if (Input.GetKey(KeyCode.D))
                 {
                     moveX = +1f;
+                    isWalking = true;
                 }
+
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+                {
+                    isWalking = true;
+                }
+                else isWalking = false;
 
                 moveDir = new Vector3(moveX, moveY).normalized;
 
@@ -64,9 +77,25 @@ public class PlayerMovement : MonoBehaviour
                 {
                     dashDir = moveDir;
                     dashSpeed = 100f;
-                    state = State.Dashing;
+                    states = State.Dashing;
                     isDashing = true;
                 }
+
+                if(isWalking && !AudioManager.isPlayingClip)
+                {
+                    FindObjectOfType<AudioManager>().Play("Flamey_footsteps1.8");
+                }
+                
+                if(!isWalking)
+                {
+                    FindObjectOfType<AudioManager>().Stop("Flamey_footsteps1.8");
+                }
+
+                if (states == State.Dashing)
+                {
+                    FindObjectOfType<AudioManager>().Play("Flamey_DashV1");
+                }
+
                 break;
             case State.Dashing:
                 float dashSpeedDropMultiplier = 5f;
@@ -75,10 +104,12 @@ public class PlayerMovement : MonoBehaviour
                 float dashSpeedMinimum = 50f;
                 if (dashSpeed < dashSpeedMinimum)
                 {
-                    state = State.Normal;
+                    states = State.Normal;
                     isDashing = false;
                 }
                 break;
+
+
                 /*//PauseMenu med toggle funksjon
                 if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
                 {
@@ -97,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        switch (state)
+        switch (states)
         {
             case State.Normal:
                 rb.velocity = moveDir * movementSpeed * Time.deltaTime;
@@ -110,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         if(CollideScript.isCrashing)
         {
             rb.AddForce(-moveDir * knockBack, ForceMode2D.Impulse);
+            FindObjectOfType<AudioManager>().Play("Flamey_KnockBack");
         }
 
 

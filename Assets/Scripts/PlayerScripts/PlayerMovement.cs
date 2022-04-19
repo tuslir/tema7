@@ -44,25 +44,21 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 {
                     moveY = +1f;
-                    isWalking = true;
                 }
                 
                 if (Input.GetKey(KeyCode.A))
                 {
                     moveX = -1f;
-                    isWalking = true;
                 }
 
                 if (Input.GetKey(KeyCode.S))
                 {
                     moveY = -1f;
-                    isWalking = true;
                 }
                 
                 if (Input.GetKey(KeyCode.D))
                 {
                     moveX = +1f;
-                    isWalking = true;
                 }
 
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))

@@ -1,13 +1,15 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private TextMeshProUGUI volumeTextUI = null;
-    public Canvas settings;
-    public Canvas mainMenu;
+    [SerializeField] private Canvas settings;
+    [SerializeField] private Canvas mainMenu;
+    [SerializeField] private GameObject muteButton;
+    [SerializeField] private GameObject unMuteButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+  
     }
 
     public void SettingsMenu()
@@ -45,10 +47,23 @@ public class MainMenu : MonoBehaviour
         LoadValues();
     }
 
-    void LoadValues()
+    public void MuteButton()
+    {
+        muteButton.SetActive(false);
+        unMuteButton.SetActive(true);
+        FindObjectOfType<AudioManager>().GetComponent<AudioSource>().mute = true;
+    }
+
+    public void UnMuteButton()
+    {
+        muteButton.SetActive(true);
+        unMuteButton.SetActive(false);
+        FindObjectOfType<AudioManager>().GetComponent<AudioSource>().mute = false;
+    }
+
+    public void LoadValues()
     {
         float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
-        volumeSlider.value = volumeValue;
         AudioListener.volume = volumeValue;
     }
 

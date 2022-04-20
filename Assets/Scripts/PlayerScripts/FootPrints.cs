@@ -3,8 +3,10 @@ using UnityEngine;
 public class FootPrints : MonoBehaviour
 {
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private ObjectPooling pooling;
     [SerializeField] private GameObject footPrints;
+    [SerializeField] private ObjectPooling pooling;
+    [SerializeField] private Vector3 offset2;
+    [SerializeField] private Vector3 offset3;
     private float timer = 0;
     private float totalTime = 0;
 
@@ -25,7 +27,19 @@ public class FootPrints : MonoBehaviour
         timer += Time.deltaTime;
         if (totalTime > 0.1f)
         {
-            footPrints.transform.position = this.transform.position;
+            if (PlayerStates.state == PlayerStates.playerLvL.lvl1)
+            {
+                footPrints.transform.position = this.transform.position -= offset2;
+            }
+            else if (PlayerStates.state == PlayerStates.playerLvL.lvl2)
+            {
+                footPrints.transform.position = this.transform.position - offset2;
+            }
+            else if (PlayerStates.state == PlayerStates.playerLvL.lvl3)
+            {
+                footPrints.transform.position = this.transform.position - offset3;
+            }
+
             footPrints.SetActive(true);
             totalTime = 0;
         }

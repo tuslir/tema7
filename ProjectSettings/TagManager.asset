@@ -8,6 +8,11 @@ TagManager:
   - MidConsumable
   - Burnt
   - Hazard
+  - Stage2
+  - Stage3
+  - Stage1
+  - Desert
+  - IceWorld
   layers:
   - Default
   - TransparentFX

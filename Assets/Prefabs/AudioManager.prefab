@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main_Menu_Song
-    clip: {fileID: 8300000, guid: 3bfba6d2193d7c9478155ea7c8fb4450, type: 3}
-    volume: 0.502
-    loop: 0
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 058a58ce2f853b04b8b2212cec6cd5c7, type: 3}
+    volume: 0.219
+    loop: 1
     source: {fileID: 0}
   - name: Flamey_KnockBack
     clip: {fileID: 8300000, guid: fa8d816438392b3419494e84b6e60722, type: 3}
@@ -73,4 +73,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 19dcf4e75f0a4dd4dba0a44173c3356a, type: 3}
     volume: 0.5
     loop: 0
+    source: {fileID: 0}
+  - name: PlayButton
+    clip: {fileID: 8300000, guid: 377920eb073cd9249aaa3bf140a1e52f, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: NormalButton
+    clip: {fileID: 8300000, guid: fe8bf658b3ce8d94d8021fe59742512b, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 824ff5d93c180684e960f06c238f48fe, type: 3}
+    volume: 0.5
+    loop: 1
     source: {fileID: 0}

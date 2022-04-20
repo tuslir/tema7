@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Canvas mainMenu;
     [SerializeField] private GameObject muteButton;
     [SerializeField] private GameObject unMuteButton;
+    [SerializeField] private GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,23 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("NormalButton");
         settings.enabled = true;
         mainMenu.enabled = false;
+    }
+
+    public void SettingsMenuInGame()
+    {
+        FindObjectOfType<AudioManager>().Play("NormalButton");
+        settings.enabled = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    public void BackToPause()
+    {
+        FindObjectOfType<AudioManager>().Play("NormalButton");
+        settings.enabled = false;
     }
 
     public void MainMenuScreen()

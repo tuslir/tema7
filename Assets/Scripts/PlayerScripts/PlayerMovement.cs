@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Stored Variables")]
-    [SerializeField] private GameObject vp;
+    [SerializeField] private VideoPlayer vp;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float dashSpeed;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        pauseMenu.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         states = State.Normal;
     }
@@ -55,46 +56,58 @@ public class PlayerMovement : MonoBehaviour
                 float moveX = 0f;
                 float moveY = 0f;
 
-                if (!vp.GetComponent<VideoPlayer>().clip)
+
+
+                if (Input.GetKey(KeyCode.W))
                 {
-                    if (Input.GetKey(KeyCode.W))
-                    {
-                        moveY = +1f;
-                    }
-
-                    if (Input.GetKey(KeyCode.A))
-                    {
-                        moveX = -1f;
-                    }
-
-                    if (Input.GetKey(KeyCode.S))
-                    {
-                        moveY = -1f;
-                    }
-
-                    if (Input.GetKey(KeyCode.D))
-                    {
-                        moveX = +1f;
-                    }
-
-                    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-                    {
-                        isWalking = true;
-                    }
-                    else isWalking = false;
-
-                    moveDir = new Vector3(moveX, moveY).normalized;
-
-                    if (Input.GetKeyDown(KeyCode.Space) && canDash)
-                    {
-                        dashDir = moveDir;
-                        dashSpeed = 100f;
-                        states = State.Dashing;
-                        isDashing = true;
-                        canDash = false;
-                        cdTimer = 0f;
-                    }
+                    moveY = +1f;
                 }
+
+                if (Input.GetKey(KeyCode.A))
+                {
+                    moveX = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.S))
+                {
+                    moveY = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    moveX = +1f;
+                }
+
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+                {
+                    isWalking = true;
+                }
+                else isWalking = false;
+
+                moveDir = new Vector3(moveX, moveY).normalized;
+
+                if (Input.GetKeyDown(KeyCode.Space) && canDash)
+                {
+                    dashDir = moveDir;
+                    dashSpeed = 100f;
+                    states = State.Dashing;
+                    isDashing = true;
+                    canDash = false;
+                    cdTimer = 0f;
+                }
+
+                //PauseMenu med toggle funksjon
+                if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+                {
+                    isPaused = true;
+                    pauseMenu.SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+                {
+                    pauseMenu.SetActive(false);
+                    isPaused = false;
+                }
+
 
                 if (isWalking && !AudioManager.isPlayingClip)
                 {
@@ -125,18 +138,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
 
-                /*//PauseMenu med toggle funksjon
-                if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
-                {
-                    isPaused = true;
-                    pauseMenu.SetActive(true);
-                }
-                else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
-                {
-                    pauseMenu.SetActive(false);
-                    isPaused = false;
-                }
-                */
 
         }
 

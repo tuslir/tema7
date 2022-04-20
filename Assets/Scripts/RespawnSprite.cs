@@ -20,7 +20,7 @@ public class RespawnSprite : MonoBehaviour
 
 
     [Header ("Public for debug")]
-    public float range;         //distance from player before item grows back.
+    public float range = 50;         //distance from player before item grows back.
 
 
     void Start()

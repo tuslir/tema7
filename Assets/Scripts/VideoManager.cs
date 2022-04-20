@@ -20,12 +20,18 @@ public class VideoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(VP.clip)
+        {
+            FindObjectOfType<AudioManager>().Stop("MainMenu");
+        }
+
         timeToStop -= Time.deltaTime;
 
         if(timeToStop <=0)
         {
             video.enabled = false;
             Debug.Log("Video Finsihed");
+            FindObjectOfType<AudioManager>().Play("Flamey_footsteps1.8");
             Destroy(this);
         }
         

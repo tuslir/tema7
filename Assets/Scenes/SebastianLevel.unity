@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: footPrints
       value: 
       objectReference: {fileID: 4762859776969645812, guid: f76a59e2ce8aa254883c708350232280, type: 3}
+    - target: {fileID: 1024381277, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5767010194484528276, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
       propertyPath: m_Name
       value: Art
@@ -353,6 +357,10 @@ PrefabInstance:
       propertyPath: sr
       value: 
       objectReference: {fileID: 847994916}
+    - target: {fileID: 5767010195305460704, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
+      propertyPath: vp
+      value: 
+      objectReference: {fileID: 2061402916}
     - target: {fileID: 5767010195305460704, guid: e1a7147d925b5f04a9174b9864801352, type: 3}
       propertyPath: anim
       value: 
@@ -976,7 +984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &682533915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1321,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   footPrints: {fileID: 4762859776969645812, guid: f76a59e2ce8aa254883c708350232280, type: 3}
-  pooling: {fileID: 0}
+  pooling: {fileID: 1598948361}
+  offset2: {x: 0, y: 0, z: 0}
+  offset3: {x: 0, y: 0, z: 0}
 --- !u!61 &1024381273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1657,6 +1667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  vp: {fileID: 0}
   pauseMenu: {fileID: 0}
   movementSpeed: 3
   dashSpeed: 0
@@ -1814,6 +1825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  vp: {fileID: 0}
   pauseMenu: {fileID: 0}
   movementSpeed: 1
   dashSpeed: 0
@@ -1920,7 +1932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!328 &2061402917
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -1929,7 +1941,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061402916}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7f878be74b138614d82ec571a99e05ea, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 453f1bfa21037764382dd08a0dc451c5, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1991,78 +2003,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fa8d816438392b3419494e84b6e60722, type: 3}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[1].name
-      value: Flamey_KnockBack
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 12ba38ea30ad9e143945b023a7b7022f, type: 3}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[2].name
-      value: Flamey_DashV1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4e0af54fd4b62824e98e557525ffe41b, type: 3}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[3].name
-      value: Flamey_Burn3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7ea24236839001b45a964b2e26cb6b1f, type: 3}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[4].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: Flamey_footsteps1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 19dcf4e75f0a4dd4dba0a44173c3356a, type: 3}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[5].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[5].name
-      value: Flamey_Slukkes
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[1].volume
-      value: 0.502
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[2].volume
-      value: 0.502
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[3].volume
-      value: 0.502
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149991471544767236, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
-      propertyPath: sounds.Array.data[5].volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5149991471544767237, guid: d756bbd959ab600499b03f67c0ceebca, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -7,6 +7,7 @@ public class StageManager : MonoBehaviour
 {
   public void StartGame()
     {
+        FindObjectOfType<AudioManager>().Play("PlayButton");
         SceneManager.LoadScene(1);
     }
 

@@ -55,9 +55,12 @@ public class PlayerStates : MonoBehaviour
             this.GetComponent<BoxCollider2D>().size = new Vector2(2.6f, 2.4f);
         }
 
-        if(CollideScript.fuel == 100 && state == playerLvL.lvl3)
-        {
-            canWin = true;
+        if(CollideScript.fuel == 100 && state == playerLvL.lvl3)
+
+        {
+
+            canWin = true;
+
         }
 
 

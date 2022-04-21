@@ -597,6 +597,7 @@ MonoBehaviour:
   mainMenu: {fileID: 638493250}
   muteButton: {fileID: 737906807}
   unMuteButton: {fileID: 740254725}
+  pauseMenu: {fileID: 0}
 --- !u!4 &475558970
 Transform:
   m_ObjectHideFlags: 0

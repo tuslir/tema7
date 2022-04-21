@@ -111,7 +111,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &5767010194484528361
@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 5767010195305460707}
   - component: {fileID: 5767010195305460704}
   - component: {fileID: 37364621}
-  - component: {fileID: 1024381270}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -219,22 +218,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
---- !u!114 &1024381270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767010195305460719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d491572646b3dc4c93ff526e3e372b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  footPrints: {fileID: 0}
-  pooling: {fileID: 0}
-  offset2: {x: 0, y: 0, z: 0}
-  offset3: {x: 0, y: 0, z: 0}
+  pointsTo2: 0
+  pointsTo3: 0

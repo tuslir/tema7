@@ -144,10 +144,8 @@ GameObject:
   - component: {fileID: 5767010195305460705}
   - component: {fileID: 5767010195305460707}
   - component: {fileID: 5767010195305460704}
-  - component: {fileID: 37364616}
   - component: {fileID: 37364621}
   - component: {fileID: 1024381270}
-  - component: {fileID: 1024381277}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -186,7 +184,6 @@ MonoBehaviour:
   sizeIncrease: {x: 0.1, y: 0.1, z: 0.1}
   sizeDecrease: {x: 0.1, y: 0.1, z: 0.1}
   camZoom: {x: 0, y: 0, z: 0}
-  knockBack: 0
   cam: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &5767010195305460704
@@ -202,33 +199,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  vp: {fileID: 0}
   pauseMenu: {fileID: 0}
   movementSpeed: 0
   dashSpeed: 0
   knockBack: 0
+  walkClip: {fileID: 0}
   states: 0
---- !u!114 &37364616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767010195305460719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f0af1bbb30ecd1488830d20af39df0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsObstacle:
-    serializedVersion: 2
-    m_Bits: 0
-  targetPosRight: {x: 200, y: 0, z: 0}
-  targetPosLeft: {x: -200, y: 0, z: 0}
-  targetPosForward: {x: 0, y: 200, z: 0}
-  targetPosBack: {x: 0, y: -200, z: 0}
-  dashCD: 3
-  dashSpeed: 0
-  canDash: 0
 --- !u!114 &37364621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,18 +234,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  pooling: {fileID: 0}
   footPrints: {fileID: 0}
---- !u!114 &1024381277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767010195305460719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23ca3e7f5b7d0e74e85138a5ceb150d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToDisable: {fileID: 0}
+  pooling: {fileID: 0}
+  offset2: {x: 0, y: 0, z: 0}
+  offset3: {x: 0, y: 0, z: 0}

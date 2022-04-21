@@ -9,7 +9,7 @@ public class PlayerStates : MonoBehaviour
     public enum playerLvL { lvl1, lvl2, lvl3, lvl4, lvl5 };
     public static playerLvL state;
     public Text text;
-    public int pointsTo2, pointsTo3;
+    public static bool canWin = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +53,13 @@ public class PlayerStates : MonoBehaviour
             this.GetComponent<BoxCollider2D>().offset = new Vector2(0.7660803f, -1.312147f);
             this.GetComponent<BoxCollider2D>().size = new Vector2(2.75416f, 6.098046f);
         }
+
+        if(CollideScript.fuel == 100 && state == playerLvL.lvl3)
+        {
+            canWin = true;
+        }
+
+
         
     }
 

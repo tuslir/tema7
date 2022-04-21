@@ -7,7 +7,9 @@ using UnityEngine;
 public class VideoManager : MonoBehaviour
 {
     [SerializeField] private VideoPlayer VP;
-    [SerializeField] private RawImage video;
+    [SerializeField] private GameObject video;
+    [SerializeField] private Canvas introUI;
+    [SerializeField] private GameObject fadeIn;
     private float timeToStop;
 
     // Start is called before the first frame update
@@ -21,13 +23,19 @@ public class VideoManager : MonoBehaviour
     void Update()
     {
         timeToStop -= Time.deltaTime;
-
-        if(timeToStop <=0)
+        if(VP.clip && Input.GetKeyDown(KeyCode.Escape) || timeToStop <=0)
         {
-            video.enabled = false;
-            Debug.Log("Video Finsihed");
-            Destroy(this);
+            introUI.enabled = false;
+            video.SetActive(false);
+            FindObjectOfType<AudioManager>().Play("Theme");
         }
-        
+
+        if (VP.clip)
+        {
+            fadeIn.SetActive(false);
+            FindObjectOfType<AudioManager>().Stop("MainMenu");
+
+        }
+
     }
 }

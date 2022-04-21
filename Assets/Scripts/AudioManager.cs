@@ -37,7 +37,6 @@ public class AudioManager : MonoBehaviour
     {
         isPlayingClip = true;
         Sound s =Array.Find(sounds, sound => sound.name == name);
-        s.source.ignoreListenerVolume = true;
         s.source.Play();
         if (s == null)
         {
@@ -58,6 +57,7 @@ public class AudioManager : MonoBehaviour
         isPlayingClip = false;
     }
 
+    /*
     public void PlayOnce(AudioClip clip)
     {
         isPlayingClip = true;
@@ -70,9 +70,5 @@ public class AudioManager : MonoBehaviour
             return; 
         }
     }
-    private void Update()
-    {
-        
-    }
-
+    */
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Stored Variables")]
+    [SerializeField] private VideoPlayer vp;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float knockBack;
     [SerializeField] private AudioClip walkClip;
+    private float cdTimer = 0;
+    private float maxCDTimer = 3f;
     public static Vector3 moveDir;
     private Vector3 dashDir;
     public State states;
 
     [Header("Bools")]
+    private bool canDash;
     private bool isPaused;
     private bool isWalking;
     public static bool isDashing;
@@ -27,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        pauseMenu.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         states = State.Normal;
     }
@@ -34,18 +40,29 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cdTimer += Time.deltaTime;
+
+        if (cdTimer >= maxCDTimer)
+        {
+            canDash = true;
+        }
+
         switch (states)
         {
+
+
 
             case State.Normal:
                 float moveX = 0f;
                 float moveY = 0f;
 
+
+
                 if (Input.GetKey(KeyCode.W))
                 {
                     moveY = +1f;
                 }
-                
+
                 if (Input.GetKey(KeyCode.A))
                 {
                     moveX = -1f;
@@ -55,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     moveY = -1f;
                 }
-                
+
                 if (Input.GetKey(KeyCode.D))
                 {
                     moveX = +1f;
@@ -69,20 +86,35 @@ public class PlayerMovement : MonoBehaviour
 
                 moveDir = new Vector3(moveX, moveY).normalized;
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && canDash)
                 {
                     dashDir = moveDir;
                     dashSpeed = 100f;
                     states = State.Dashing;
                     isDashing = true;
+                    canDash = false;
+                    cdTimer = 0f;
                 }
 
-                if(isWalking && !AudioManager.isPlayingClip)
+                //PauseMenu med toggle funksjon
+                if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+                {
+                    isPaused = true;
+                    pauseMenu.SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+                {
+                    pauseMenu.SetActive(false);
+                    isPaused = false;
+                }
+
+
+                if (isWalking && !AudioManager.isPlayingClip)
                 {
                     FindObjectOfType<AudioManager>().Play("Flamey_footsteps1.8");
                 }
-                
-                if(!isWalking)
+
+                if (!isWalking)
                 {
                     FindObjectOfType<AudioManager>().Stop("Flamey_footsteps1.8");
                 }
@@ -106,18 +138,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
 
-                /*//PauseMenu med toggle funksjon
-                if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
-                {
-                    isPaused = true;
-                    pauseMenu.SetActive(true);
-                }
-                else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
-                {
-                    pauseMenu.SetActive(false);
-                    isPaused = false;
-                }
-                */
 
         }
 
@@ -134,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        if(CollideScript.isCrashing)
+        if (CollideScript.isCrashing)
         {
             rb.AddForce(-moveDir * knockBack, ForceMode2D.Impulse);
             FindObjectOfType<AudioManager>().Play("Flamey_KnockBack");

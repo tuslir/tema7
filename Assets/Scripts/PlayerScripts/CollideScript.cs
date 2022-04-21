@@ -56,9 +56,11 @@ public class CollideScript : MonoBehaviour
             cam.transform.position += camZoom;
             Debug.Log(fuel);
             Destroy(other);
-            //if (fuel >= 1)
-            //{
-            //}
+        }
+
+        if(other.CompareTag("Volcano") && PlayerStates.canWin)
+        {
+            //Play Outro
         }
     }
 

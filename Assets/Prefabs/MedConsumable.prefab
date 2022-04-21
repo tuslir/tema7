@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3200536693380056916}
   - component: {fileID: 3200536693380056917}
   - component: {fileID: 3200536693380056921}
-  - component: {fileID: 2644044952165637811}
+  - component: {fileID: 4793185745912765274}
   m_Layer: 0
   m_Name: MedConsumable
   m_TagString: MidConsumable
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   midCon: []
---- !u!61 &2644044952165637811
+--- !u!61 &4793185745912765274
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12685263, y: -0.23131907}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.313607, y: 3.8807123}
+  m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
 --- !u!1 &5358486709662900054
 GameObject:

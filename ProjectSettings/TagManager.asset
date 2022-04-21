@@ -8,6 +8,11 @@ TagManager:
   - MidConsumable
   - Burnt
   - Hazard
+  - Stage2
+  - Stage3
+  - Stage1
+  - Desert
+  - IceWorld
   layers:
   - Default
   - TransparentFX
@@ -44,4 +49,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Projectile
+    uniqueID: 1395072075
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 3112431359
     locked: 0

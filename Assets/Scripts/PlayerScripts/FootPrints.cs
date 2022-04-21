@@ -13,6 +13,7 @@ public class FootPrints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        footPrints = GameObject.Find("ScorchMarks(Clone)");
         timer = 4;
     }
 

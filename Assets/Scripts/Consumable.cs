@@ -17,19 +17,25 @@ public class Consumable : MonoBehaviour
     void Update()
     {
         //If the player is a certain lvl, it goes through the array and changes every object's collider
-        if(PlayerStates.state == PlayerStates.playerLvL.lvl2)
+        if(PlayerStates.state == PlayerStates.playerLvL.lvl2 || PlayerStates.state == PlayerStates.playerLvL.lvl3)
         {
             foreach (var i in midCon)
             {
-                i.GetComponent<BoxCollider2D>().isTrigger = true;
+                i.GetComponent<CompositeCollider2D>().isTrigger = true;
             }
         }
-        else if(PlayerStates.state != PlayerStates.playerLvL.lvl2)
-            {
-                foreach (var i in midCon)
-                {
-                    i.GetComponent<BoxCollider2D>().isTrigger = false;
-                }
+        else if(PlayerStates.state != PlayerStates.playerLvL.lvl2 || PlayerStates.state != PlayerStates.playerLvL.lvl3)
+
+            {
+
+                foreach (var i in midCon)
+
+                {
+
+                    i.GetComponent<CompositeCollider2D>().isTrigger = false;
+
+                }
+
             }
     }
 }

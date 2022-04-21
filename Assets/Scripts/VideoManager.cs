@@ -6,35 +6,51 @@ using UnityEngine;
 
 public class VideoManager : MonoBehaviour
 {
-    [SerializeField] private VideoPlayer VP;
+    public static VideoPlayer VP;
     [SerializeField] private GameObject video;
     [SerializeField] private Canvas introUI;
-    [SerializeField] private GameObject fadeIn;
-    private float timeToStop;
+    [SerializeField] private VideoClip intro;
+    [SerializeField] private Canvas OutroUI;
+    [SerializeField] private VideoClip outro;
+    public static float timeToStopIntro;
+    public static float timeToStopOutro;
 
     // Start is called before the first frame update
     void Start()
     {
         VP = GetComponent<VideoPlayer>();
-        timeToStop = 56f;
+        timeToStopIntro = 56f;
+        timeToStopOutro = 7f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeToStop -= Time.deltaTime;
-        if(VP.clip && Input.GetKeyDown(KeyCode.Escape) || timeToStop <=0)
+        if(VP.clip = intro)
         {
-            introUI.enabled = false;
-            video.SetActive(false);
+
+        timeToStopIntro -= Time.deltaTime;
+        if(VP.clip && Input.GetKeyDown(KeyCode.Escape) || timeToStopIntro <=0)
+        {
+            //introUI.enabled = false;
+            //video.SetActive(false);
             FindObjectOfType<AudioManager>().Play("Theme");
         }
 
         if (VP.clip)
         {
-            fadeIn.SetActive(false);
             FindObjectOfType<AudioManager>().Stop("MainMenu");
 
+        }
+        }
+
+        if(VP.clip = outro)
+        {
+            timeToStopOutro -= Time.deltaTime;
+            if (VP.clip && Input.GetKeyDown(KeyCode.Escape) || timeToStopOutro <= 0)
+            {
+                StageManager.LoadMain();
+            }
         }
 
     }

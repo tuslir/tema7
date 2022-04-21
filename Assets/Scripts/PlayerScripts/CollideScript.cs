@@ -11,12 +11,18 @@ public class CollideScript : MonoBehaviour
     public static int fuel;
     public static bool isCrashing;
     RespawnSprite respawn;
+    bool maxCam;
 
     void Start()
     {
         fuel = 0;
     }
-    
+
+    private void Update()
+    {
+
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -55,12 +61,18 @@ public class CollideScript : MonoBehaviour
             this.gameObject.transform.localScale = this.gameObject.transform.localScale - sizeDecrease;
             cam.transform.position += camZoom;
             Debug.Log(fuel);
-            Destroy(other);
+            //Destroy(other);
         }
 
         if(other.CompareTag("Volcano") && PlayerStates.canWin)
         {
-            //Play Outro
+            StageManager.LoadOutro();
+        }
+        
+        if (PlayerStates.state == PlayerStates.playerLvL.lvl3 && !maxCam)
+        {
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, (cam.transform.position.z - 20));
+            maxCam = true;
         }
     }
 
@@ -79,6 +91,11 @@ public class CollideScript : MonoBehaviour
         {
             isCrashing = false;
         }
+
+    }
+
+    void LVL3Camera()
+    {
 
     }
 }

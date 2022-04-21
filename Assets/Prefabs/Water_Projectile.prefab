@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1223483103520291803}
   - component: {fileID: 407445086846191727}
   - component: {fileID: 8478419063020735359}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Water_Projectile
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e16d6fe71ca6ac54bab4dec8891ec562, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1395072075
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: -1872027523
+  m_SortingLayer: 4
+  m_SortingOrder: 100
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

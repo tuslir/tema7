@@ -101,11 +101,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isPaused = true;
                     pauseMenu.SetActive(true);
+                    Time.timeScale = 0;
                 }
                 else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
                 {
                     pauseMenu.SetActive(false);
                     isPaused = false;
+                    Time.timeScale = 1;
                 }
 
 

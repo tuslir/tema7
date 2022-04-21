@@ -12,6 +12,7 @@ public class CollideScript : MonoBehaviour
     public static bool isCrashing;
     RespawnSprite respawn;
     bool maxCam;
+    public GameObject volcano;
 
     void Start()
     {
@@ -73,23 +74,27 @@ public class CollideScript : MonoBehaviour
         
         if (PlayerStates.state == PlayerStates.playerLvL.lvl3 && !maxCam)
         {
-            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, (cam.transform.position.z - 20));
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, (cam.transform.position.z - 40));
             maxCam = true;
+            volcano.GetComponent<PolygonCollider2D>().enabled = false;
+            volcano.GetComponent<CapsuleCollider2D>().enabled = true;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("MidConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl1)
+        if (col.gameObject.CompareTag("MidConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl1 
+            || col.gameObject.CompareTag("Volcano") && PlayerStates.state!=PlayerStates.playerLvL.lvl3)
         {
             isCrashing = true;
-            PlayerAnimationController.Crash();
+            if(PlayerStates.state==PlayerStates.playerLvL.lvl1) PlayerAnimationController.Crash();
         }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("MidConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl1)
+        if (col.gameObject.CompareTag("MidConsumable") && PlayerStates.state == PlayerStates.playerLvL.lvl1
+             || col.gameObject.CompareTag("Volcano") && PlayerStates.state != PlayerStates.playerLvL.lvl3)
         {
             isCrashing = false;
         }

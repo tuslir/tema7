@@ -53,6 +53,8 @@ public class CollideScript : MonoBehaviour
             respawn.BurnDown();
         }
 
+
+
         if (other.CompareTag("Hazard")&& fuel >=1)
         {
             fuel--;

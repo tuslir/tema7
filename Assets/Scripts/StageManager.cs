@@ -5,20 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    private void Update()
-    {
-        if (VideoManager.VP.clip && Input.GetKeyDown(KeyCode.Escape) || VideoManager.timeToStopIntro <= 0)
-        {
-            LoadLevel();
-            return;
-        }
-        
-    }
+   
 
     public void StartGame()
     {
         FindObjectOfType<AudioManager>().Play("PlayButton");
-        SceneManager.LoadScene(1);
+
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void QuitToMain()
@@ -27,9 +20,10 @@ public class StageManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadLevel()
+    public static void LoadLevel()
     {
         SceneManager.LoadScene(2);
+        FindObjectOfType<AudioManager>().Play("Theme");
     }
 
     public static void LoadOutro()
@@ -38,6 +32,8 @@ public class StageManager : MonoBehaviour
     }
     public static void LoadMain()
     {
+        FindObjectOfType<AudioManager>().Stop("Theme");
+        FindObjectOfType<AudioManager>().Play("MainMenu");
         SceneManager.LoadScene(0);
     }
 

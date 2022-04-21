@@ -5,12 +5,14 @@ using UnityEngine;
 public class Consumable : MonoBehaviour
 {
     public GameObject[] midCon;
+    public GameObject volcano;
 
     // Start is called before the first frame update
     void Start()
     {
         // Finds all objects with the same tag and puts them to an array
         midCon = GameObject.FindGameObjectsWithTag("MidConsumable");
+        volcano = GameObject.FindGameObjectWithTag("Volcano");
     }
 
     // Update is called once per frame
@@ -37,5 +39,14 @@ public class Consumable : MonoBehaviour
                 }
 
             }
+
+        if (PlayerStates.state == PlayerStates.playerLvL.lvl3)
+        {
+            volcano.GetComponent<CompositeCollider2D>().isTrigger = true;
+        }
+        else
+        {
+            volcano.GetComponent<CompositeCollider2D>().isTrigger = false;
+        }
     }
 }

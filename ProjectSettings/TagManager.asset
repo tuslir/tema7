@@ -13,6 +13,7 @@ TagManager:
   - Stage1
   - Desert
   - IceWorld
+  - Volcano
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,10 @@ TagManager:
     locked: 0
   - name: New Layer 2
     uniqueID: 3112431359
+    locked: 0
+  - name: things
+    uniqueID: 855159887
+    locked: 0
+  - name: player
+    uniqueID: 2422939773
     locked: 0
